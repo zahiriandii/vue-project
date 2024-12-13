@@ -35,7 +35,7 @@
                   >Jobs</RouterLink
                 >
                 <RouterLink
-                  to="/add-job"
+                  to="/jobs/add"
                   :class="[isActiveLink('/add-job') ? 'bg-green-900' : 'hover:bg-gray-900 hover:text-white','text-white','px-3','py-2','rounded-md']"
                   >Add Job</RouterLink
                 >
