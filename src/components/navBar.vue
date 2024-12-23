@@ -1,11 +1,15 @@
 <script setup>
   import { RouterLink,useRoute } from 'vue-router';
+  import {useUserStore} from '@/stores/userStore';
 
   const isActiveLink = (routePath) => 
     {
       const route = useRoute();
       return route.path === routePath;
     }
+
+    let userData = useUserStore();
+
 </script>
 
 <template>
@@ -39,14 +43,21 @@
                   :class="[isActiveLink('/add-job') ? 'bg-green-900' : 'hover:bg-gray-900 hover:text-white','text-white','px-3','py-2','rounded-md']"
                   >Add Job</RouterLink
                 >
-              </div>
-            </div>
-            <div>
-              <RouterLink
+                <RouterLink
                to="/logIn"
                :class="[isActiveLink('/logIn') ? 'gb-green-900' : 'hover:bg-gray-900 hover:text-white','text-white','px-4','py-2','rounded-md']"
               >Log In</RouterLink>
+              <RouterLink
+               to="/hello"
+               :class="[isActiveLink('/hello') ? 'gb-green-900' : 'hover:bg-gray-900 hover:text-white','text-white','px-4','py-2','rounded-md']"
+              >Hello {{ userData.user ? userData.user.email : ''  }}</RouterLink>
+              <RouterLink
+               to="/logOut"
+               :class="[isActiveLink('/logOut') ? 'gb-green-900' : 'hover:bg-gray-900 hover:text-white','text-white','px-4','py-2','rounded-md']"
+              >Log Out</RouterLink>
+              </div>
             </div>
+            
           </div>
         </div>
       </div>

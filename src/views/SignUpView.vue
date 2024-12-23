@@ -2,6 +2,7 @@
   import { RouterLink } from 'vue-router';
   import { reactive } from 'vue';
   import axios from 'axios';
+  import router from '@/router';
 
   const userData = reactive({
     email: '',
@@ -11,10 +12,11 @@
   const registerUser = async () =>
   {
     try {
-      const response = await axios.post("http://localhost:5000/api/auth/register",{
+      const response = await axios.post("http://localhost:5001/api/auth/register",{
         email: userData.email,
         password: userData.password
       });
+      router.push("/logIn");
       console.log("User registered ");
     } catch (error) {
       console.log(error);

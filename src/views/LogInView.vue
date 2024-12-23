@@ -4,19 +4,24 @@
   import { reactive } from 'vue';
   import router from '@/router';
   import { RouterLink } from 'vue-router';
+  import {useUserStore} from '@/stores/userStore';
+
   const userData = reactive({
     email: '',
     password: ''
   });
 
+  const userStore = useUserStore();
+ 
+
 const checkUser = async () =>
 {
     try {
-        const response = await axios.post('http://localhost:5000/api/logIn',{
+        const response = await axios.post('http://localhost:5001/api/auth/logIn',{
             email: userData.email,
             password: userData.password
         });
-
+        userStore.setUser(response.data);
         router.push('/');
         console.log('LogIn successful',response.data);
     } catch (error) {
