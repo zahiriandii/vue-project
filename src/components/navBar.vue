@@ -60,14 +60,17 @@
                   >Add Job</RouterLink
                 >
                 <RouterLink
+                v-if="!userData.user"
                to="/logIn"
                :class="[isActiveLink('/logIn') ? 'gb-green-900' : 'hover:bg-gray-900 hover:text-white','text-white','px-4','py-2','rounded-md']"
               >Log In</RouterLink>
               <RouterLink
+               v-if="userData.user"
                to="/hello"
                :class="[isActiveLink('/hello') ? 'gb-green-900' : 'hover:bg-gray-900 hover:text-white','text-white','px-4','py-2','rounded-md']"
               >Hello {{ userData.user ? userData.user.email : ''  }}</RouterLink>
               <a
+               v-if="userData.user"
                :class="[isActiveLink('/logOut') ? 'gb-green-900' : 'hover:bg-gray-900 hover:text-white','text-white','px-4','py-2','rounded-md']"
                @click="logoutUser"
               >Log Out</a>
