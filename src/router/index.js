@@ -8,7 +8,7 @@ import AddJobView from "@/views/AddJobView.vue";
 import EditJobView from "@/views/EditJobView.vue";
 import LogInView from "@/views/LogInView.vue";
 import SignUpView from "@/views/SignUpView.vue";
-import LogOut from "@/components/LogOut.vue";
+
 
 
 const router = createRouter({
@@ -48,11 +48,6 @@ const router = createRouter({
             path: '/signUp',
             name: 'sign-up',
             component: SignUpView
-        },
-        {
-            path: '/logOut',
-            name: 'logout-comp',
-            component: LogOut
         },
         {
             path: '/:catchAll(.*)',

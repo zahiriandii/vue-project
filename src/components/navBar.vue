@@ -1,6 +1,9 @@
 <script setup>
   import { RouterLink,useRoute } from 'vue-router';
   import {useUserStore} from '@/stores/userStore';
+  import axios from 'axios';
+  import router from '@/router';
+ 
 
   const isActiveLink = (routePath) => 
     {
@@ -9,6 +12,19 @@
     }
 
     let userData = useUserStore();
+    
+    const logoutUser = async () =>
+    {
+      
+      try { 
+        const response = await axios.post("http://localhost:5001/api/auth/logOut");
+        userData.setUser(null);
+        router.push('/logIn');
+      } catch (error) {
+        console.log('Error while loggingOut',error);
+      }
+    }
+
 
 </script>
 
@@ -51,10 +67,10 @@
                to="/hello"
                :class="[isActiveLink('/hello') ? 'gb-green-900' : 'hover:bg-gray-900 hover:text-white','text-white','px-4','py-2','rounded-md']"
               >Hello {{ userData.user ? userData.user.email : ''  }}</RouterLink>
-              <RouterLink
-               to="/logOut"
+              <a
                :class="[isActiveLink('/logOut') ? 'gb-green-900' : 'hover:bg-gray-900 hover:text-white','text-white','px-4','py-2','rounded-md']"
-              >Log Out</RouterLink>
+               @click="logoutUser"
+              >Log Out</a>
               </div>
             </div>
             
