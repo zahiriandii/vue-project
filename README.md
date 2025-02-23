@@ -1,3 +1,11 @@
+# Job Applications App
+
+This is a backend application developed using Vue.js.
+
+It handles user interactions in the frontend and communicates with the backend to proccess the requests.
+<p>GitHub repo for backend -> https://github.com/zahiriandii/jobs-backend</p>
+
+
 # vue-exercise-1
 
 This template should help get you started developing with Vue 3 in Vite.
