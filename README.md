@@ -1,6 +1,6 @@
 # Job Applications App
 
-This is a backend application developed using Vue.js.
+This is a frontend application developed using Vue.js.
 
 It handles user interactions in the frontend and communicates with the backend to proccess the requests.
 <p>GitHub repo for backend -> https://github.com/zahiriandii/jobs-backend</p>
